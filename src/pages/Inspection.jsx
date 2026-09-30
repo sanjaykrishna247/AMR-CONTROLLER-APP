@@ -5,7 +5,7 @@ import { Card, clock } from '../components/ui';
 import CameraFeed from '../components/CameraFeed';
 import ArmView from '../components/ArmView';
 import Joystick from '../components/Joystick';
-import { ARM, ARM_PRESETS } from '../sim/robot';
+import { ARM, ARM_PRESETS, armFK } from '../sim/robot';
 
 export default function Inspection() {
   const { s, setJoint, setJoints, preset, snapshot } = useRobot();
@@ -39,12 +39,19 @@ export default function Inspection() {
           <div className={`cam-wrap big${flash ? ' flash' : ''}`}>
             <CameraFeed joints={s.arm.cur} zoom={zoom} time={clock(Date.now())} />
           </div>
-          <div className="cam-bar">
-            <button className="btn primary" onClick={shoot} disabled={s.estop}><Camera size={17} /> Capture frame</button>
-            <div className="cam-bar-meta">
-              <span>{s.snapshots.length} {s.snapshots.length === 1 ? 'frame' : 'frames'}</span>
-              <span className="dot-sep" />
-              <span>{s.armMoving ? 'Arm moving' : 'Arm settled'}</span>
+          <div className="cam-deck">
+            <Joystick size={124} onChange={(x, y) => { joy.current = { x, y }; }} disabled={s.estop} labels={['Up', 'Down', 'Pan', 'Pan']} />
+            <div className="cam-deck-side">
+              <div className="cam-deck-read mono">
+                <span>PAN <b>{s.arm.cur[0].toFixed(0)}°</b></span>
+                <span>TILT <b>{armFK(s.arm.cur).pitch.toFixed(0)}°</b></span>
+              </div>
+              <button className="btn primary shoot" onClick={shoot} disabled={s.estop}><Camera size={18} /> Capture</button>
+              <div className="cam-bar-meta">
+                <span>{s.snapshots.length} {s.snapshots.length === 1 ? 'frame' : 'frames'}</span>
+                <span className="dot-sep" />
+                <span>{s.armMoving ? 'Arm moving' : 'Arm settled'}</span>
+              </div>
             </div>
           </div>
         </Card>
@@ -79,10 +86,6 @@ export default function Inspection() {
                 <span><b>{p.label}</b><small>{p.hint}</small></span>
               </button>
             ))}
-          </div>
-          <div className="pantilt">
-            <Joystick size={132} onChange={(x, y) => { joy.current = { x, y }; }} disabled={s.estop} labels={['Up', 'Down', 'Pan', 'Pan']} />
-            <p className="muted">Pan / tilt nudges the base yaw and camera tilt joints.</p>
           </div>
         </Card>
 

@@ -559,6 +559,15 @@ select:focus, input:not([type='range']):focus { outline: none; border-color: var
 .lf-inner h2 { font-size: 24px; letter-spacing: -0.01em; }
 .lf-inner .muted { margin-top: -10px; margin-bottom: 6px; }
 
+/* camera control deck: joystick sits right under the feed */
+.cam-deck { display: flex; align-items: center; gap: 18px; padding: 14px 14px 16px; }
+.cam-deck .joy { touch-action: none; }
+.cam-deck-side { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: stretch; gap: 10px; }
+.cam-deck-read { display: flex; gap: 16px; font-size: 12px; color: var(--ink-3); }
+.cam-deck-read b { color: var(--ink); font-weight: 500; font-size: 14px; margin-left: 4px; }
+.cam-deck .shoot { height: 48px; font-size: 15px; }
+.cam-deck .cam-bar-meta { justify-content: flex-start; }
+
 /* ---------- Theme refinements ---------- */
 h1, h2, .card-h h2, .tb-title h1, .sb-user-text strong, .lf-inner h2, .login-copy h1, .login-brand { font-family: var(--display); letter-spacing: -0.015em; }
 .card-h h2 { font-size: 16px; font-weight: 600; }
