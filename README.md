@@ -1,4 +1,4 @@
-# AMR Control: Multipurpose Mobile Robot console (PWA)
+# ARCEUX Control: Multipurpose Mobile Robot console (PWA)
 
 An operator console for the Multipurpose Mobile Robot (material handling + inspection).
 It runs entirely in the browser with no backend. A built-in simulator drives the robot:

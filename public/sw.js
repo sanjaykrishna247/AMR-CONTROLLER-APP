@@ -1,6 +1,6 @@
 // Offline support: precache the shell, then cache-first for same-origin GETs.
-const CACHE = 'amr-console-v1';
-const SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
+const CACHE = 'arceux-console-v2';
+const SHELL = ['./', './index.html', './manifest.webmanifest', './favicon.png', './logo.png'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));

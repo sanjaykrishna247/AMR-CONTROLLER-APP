@@ -704,6 +704,19 @@ h1, h2, .card-h h2, .tb-title h1, .sb-user-text strong, .lf-inner h2, .login-cop
 .st-btn { border-radius: 10px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); }
 .st-btn.on { background: linear-gradient(180deg, #27406f 0%, var(--navy-800) 100%); border-color: var(--navy-900); }
 
+/* ---------- Brand logo ---------- */
+.hero-badge { background: rgba(255, 255, 255, 0.08) !important; border: 1px solid rgba(255, 255, 255, 0.14); }
+.hero-badge img { width: 44px; height: 44px; object-fit: contain; }
+.sb-brand { display: flex; align-items: center; gap: 12px; padding: 0 8px 18px; }
+.sb-brand img { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
+.sb-brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.sb-brand-text strong { font-size: 19px; font-weight: 800; letter-spacing: 0.08em; }
+.sb-brand-text span { font-size: 11.5px; color: rgba(255, 255, 255, 0.55); letter-spacing: 0.02em; }
+.sb-user { padding: 12px; margin-bottom: 14px; border-radius: 14px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); }
+.sidebar .sb-divider { display: none; }
+.brand-mark { width: 44px !important; height: 44px !important; object-fit: contain; background: none !important; border-radius: 0 !important; }
+.login-brand { font-size: 20px !important; font-weight: 800 !important; letter-spacing: 0.08em; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1280px) {
   .g-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -769,4 +782,19 @@ h1, h2, .card-h h2, .tb-title h1, .sb-user-text strong, .lf-inner h2, .login-cop
 @media (max-width: 380px) {
   .stats { grid-template-columns: minmax(0, 1fr); }
   .tb-title h1 { font-size: 16px; }
+}
+
+/* ---------- Phone login: brand strip + form, no scrolling ---------- */
+@media (max-width: 640px) {
+  .login { grid-template-rows: auto 1fr; min-height: 100dvh; }
+  .login-art { padding: calc(18px + env(safe-area-inset-top, 0px)) 20px 18px; gap: 0; background-image: none; }
+  .login-copy { display: none; }
+  .login-brand { justify-content: center; }
+  .login-form { place-items: start center; padding: 22px 20px calc(20px + env(safe-area-inset-bottom, 0px)); }
+  .lf-inner { gap: 12px; }
+  .lf-inner h2 { font-size: 21px; }
+  .lf-inner .muted { margin: -6px 0 2px; }
+  .login-form input, .login-form select { height: 46px; font-size: 16px; }
+  .login-form .btn.lg { height: 48px; }
+  .login-form .btn.ghost { height: 42px; }
 }

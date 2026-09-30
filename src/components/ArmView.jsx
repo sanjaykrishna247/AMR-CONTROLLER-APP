@@ -51,7 +51,7 @@ export default function ArmView({ joints, target, onReach }) {
       <rect x="-34" y={Y(ARM.deck)} width="56" height="3" rx="1.2" fill="var(--arm-body-top)" />
       <circle cx="-4" cy={Y(6)} r="6" fill="var(--ink)" /><circle cx="-4" cy={Y(6)} r="2.2" fill="var(--arm-body-top)" />
       <circle cx="-28" cy={Y(3.5)} r="3.5" fill="var(--ink-2)" /><circle cx="16" cy={Y(3.5)} r="3.5" fill="var(--ink-2)" />
-      <text x="-12" y={Y(18)} textAnchor="middle" className="arm-body-label">AMR-01</text>
+      <text x="-12" y={Y(18)} textAnchor="middle" className="arm-body-label">ARCEUX-01</text>
 
       {/* ghost of target pose */}
       {tk && (

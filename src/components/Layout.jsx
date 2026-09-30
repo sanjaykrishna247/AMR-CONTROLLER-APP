@@ -12,7 +12,7 @@ const NAV = [
 ];
 
 const TITLES = {
-  '/': ['Overview', 'Live status of AMR-01'],
+  '/': ['Overview', 'Live status of ARCEUX-01'],
   '/navigation': ['Navigation', 'SLAM map, path planning & teleop'],
   '/inspection': ['Inspection Arm', '4-DOF camera manipulator'],
   '/missions': ['Missions', 'Tugging & inspection task queue'],
@@ -25,6 +25,13 @@ function Sidebar({ user, onLogout, onNavigate }) {
   const initials = user.name.split(' ').map((w) => w[0]).slice(0, 2).join('').toUpperCase();
   return (
     <aside className="sidebar">
+      <div className="sb-brand">
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" width="40" height="40" />
+        <div className="sb-brand-text">
+          <strong>ARCEUX</strong>
+          <span>Robot Control Console</span>
+        </div>
+      </div>
       <div className="sb-user">
         <div className="sb-avatar">{initials}</div>
         <div className="sb-user-text">
@@ -44,7 +51,7 @@ function Sidebar({ user, onLogout, onNavigate }) {
 
       <div className="sb-robot">
         <div className="sb-robot-head">
-          <span className="sb-robot-name">AMR-01</span>
+          <span className="sb-robot-name">ARCEUX-01</span>
           <span className={`sb-state ${s.estop ? 'stop' : 'ok'}`}>{s.estop ? 'E-STOP' : s.mode === 'auto' ? 'Auto' : 'Manual'}</span>
         </div>
         <div className="sb-batt">

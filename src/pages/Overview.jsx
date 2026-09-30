@@ -33,17 +33,10 @@ export default function Overview() {
     <div className="page">
       <section className="hero">
         <div className="hero-id">
-          <div className="hero-badge">
-            <svg viewBox="0 0 48 48" width="34" height="34" aria-hidden>
-              <rect x="6" y="20" width="36" height="16" rx="4" fill="currentColor" opacity=".9" />
-              <circle cx="14" cy="38" r="4" fill="currentColor" /><circle cx="34" cy="38" r="4" fill="currentColor" />
-              <path d="M16 20 V12 L26 7 L32 11" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-              <rect x="30" y="8" width="8" height="6" rx="1.5" fill="currentColor" />
-            </svg>
-          </div>
+          <div className="hero-badge"><img src={`${import.meta.env.BASE_URL}logo.png`} alt="" width="40" height="40" /></div>
           <div>
             <div className="hero-kicker">Multipurpose Mobile Robot · Bay 3</div>
-            <h2 className="hero-name">AMR-01</h2>
+            <h2 className="hero-name">ARCEUX-01</h2>
             <div className={`hero-status ${st.tone}`}><span className="pulse" />{st.text}</div>
           </div>
         </div>
