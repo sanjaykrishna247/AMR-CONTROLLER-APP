@@ -1,5 +1,5 @@
 // Offline support: precache the shell, then cache-first for same-origin GETs.
-const CACHE = 'mmr-console-v1';
+const CACHE = 'amr-console-v1';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', (e) => {

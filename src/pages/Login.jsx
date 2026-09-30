@@ -20,8 +20,8 @@ export default function Login({ onLogin }) {
     <div className="login">
       <div className="login-art">
         <div className="login-brand">
-          <span className="brand-mark">M</span>
-          <span>MMR Control</span>
+          <span className="brand-mark">A</span>
+          <span>AMR Control</span>
         </div>
         <div className="login-copy">
           <h1>One robot for towing, mapping and inspection.</h1>
@@ -60,7 +60,7 @@ export default function Login({ onLogin }) {
             <input value={pin} onChange={(e) => { setPin(e.target.value.replace(/\D/g, '').slice(0, 4)); setErr(''); }} placeholder="4 digits" inputMode="numeric" type="password" />
           </label>
           {err && <p className="form-err">{err}</p>}
-          <button className="btn primary block lg" type="submit">Connect to MMR-01 <ArrowRight size={18} /></button>
+          <button className="btn primary block lg" type="submit">Connect to AMR-01 <ArrowRight size={18} /></button>
           <button type="button" className="btn ghost block" onClick={() => onLogin({ name: 'Demo Operator', role: ROLES[0] })}>Continue with demo account</button>
         </div>
       </form>

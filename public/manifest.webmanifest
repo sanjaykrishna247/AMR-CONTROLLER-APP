@@ -1,6 +1,6 @@
 {
-  "name": "MMR Control — Multipurpose Mobile Robot",
-  "short_name": "MMR Control",
+  "name": "AMR Control — Multipurpose Mobile Robot",
+  "short_name": "AMR Control",
   "description": "Operator console for the Multipurpose Mobile Robot: navigation, towing missions and arm-camera inspection.",
   "start_url": "./",
   "scope": "./",

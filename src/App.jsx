@@ -9,7 +9,7 @@ import Inspection from './pages/Inspection';
 import Missions from './pages/Missions';
 import Health from './pages/Health';
 
-const KEY = 'mmr.user';
+const KEY = 'amr.user';
 const load = () => { try { return JSON.parse(localStorage.getItem(KEY)); } catch { return null; } };
 
 export default function App() {

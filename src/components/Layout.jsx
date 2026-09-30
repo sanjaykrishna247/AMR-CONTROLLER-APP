@@ -12,7 +12,7 @@ const NAV = [
 ];
 
 const TITLES = {
-  '/': ['Overview', 'Live status of MMR-01'],
+  '/': ['Overview', 'Live status of AMR-01'],
   '/navigation': ['Navigation', 'SLAM map, path planning & teleop'],
   '/inspection': ['Inspection Arm', '4-DOF camera manipulator'],
   '/missions': ['Missions', 'Tugging & inspection task queue'],
@@ -44,7 +44,7 @@ function Sidebar({ user, onLogout, onNavigate }) {
 
       <div className="sb-robot">
         <div className="sb-robot-head">
-          <span className="sb-robot-name">MMR-01</span>
+          <span className="sb-robot-name">AMR-01</span>
           <span className={`sb-state ${s.estop ? 'stop' : 'ok'}`}>{s.estop ? 'E-STOP' : s.mode === 'auto' ? 'Auto' : 'Manual'}</span>
         </div>
         <div className="sb-batt">

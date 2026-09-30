@@ -43,7 +43,7 @@ export default function Overview() {
           </div>
           <div>
             <div className="hero-kicker">Multipurpose Mobile Robot · Bay 3</div>
-            <h2 className="hero-name">MMR-01</h2>
+            <h2 className="hero-name">AMR-01</h2>
             <div className={`hero-status ${st.tone}`}><span className="pulse" />{st.text}</div>
           </div>
         </div>
