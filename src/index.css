@@ -30,8 +30,8 @@
   --radius: 18px;
   --radius-sm: 10px;
   --sidebar: 276px;
-  --font: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --display: 'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+  --font: 'Segoe UI', 'Segoe UI Variable', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --display: 'Segoe UI', 'Segoe UI Variable', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   /* map */
@@ -569,10 +569,10 @@ select:focus, input:not([type='range']):focus { outline: none; border-color: var
 .cam-deck .cam-bar-meta { justify-content: flex-start; }
 
 /* ---------- Theme refinements ---------- */
-h1, h2, .card-h h2, .tb-title h1, .sb-user-text strong, .lf-inner h2, .login-copy h1, .login-brand { font-family: var(--display); letter-spacing: -0.015em; }
+h1, h2, .card-h h2, .tb-title h1, .sb-user-text strong, .lf-inner h2, .login-copy h1, .login-brand { font-family: var(--display); letter-spacing: -0.005em; }
 .card-h h2 { font-size: 16px; font-weight: 600; }
 .tb-title h1 { font-size: 23px; font-weight: 700; }
-.stat-v.mono, .batt-pct.mono, .hero-name { font-family: var(--display); font-weight: 600; letter-spacing: -0.03em; }
+.stat-v.mono, .batt-pct.mono, .hero-name { font-family: var(--display); font-weight: 600; letter-spacing: -0.015em; }
 .stat-v { font-size: 34px; }
 .sb-link { font-size: 15.5px; }
 .sb-avatar { background: var(--accent); color: #fff; }
@@ -602,7 +602,6 @@ h1, h2, .card-h h2, .tb-title h1, .sb-user-text strong, .lf-inner h2, .login-cop
 .hero .btn.primary:hover { background: var(--accent-600); }
 
 .stat { position: relative; overflow: hidden; }
-.stat::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--tone, var(--accent)); }
 .stat-ic { background: var(--tone-50, var(--accent-50)); color: var(--tone, var(--accent)); }
 .stat .meter i { background: var(--tone, var(--accent)); }
 .stat.c-teal { --tone: var(--ok); --tone-50: var(--ok-50); }
@@ -635,6 +634,75 @@ h1, h2, .card-h h2, .tb-title h1, .sb-user-text strong, .lf-inner h2, .login-cop
 .login-copy p { color: rgba(255, 255, 255, 0.72); }
 .login-robot { color: #ffc9ad; }
 .login-foot { color: rgba(255, 255, 255, 0.5); }
+
+/* ---------- Avatar, buttons ---------- */
+.sb-avatar {
+  position: relative; border-radius: 50%;
+  width: 46px; height: 46px; font-size: 15px; font-weight: 600;
+  background: linear-gradient(145deg, #f27a45, var(--accent)); color: #fff;
+  box-shadow: 0 0 0 3px var(--navy-900), 0 0 0 4.5px rgba(255, 255, 255, 0.22);
+}
+.sb-avatar::after {
+  content: ''; position: absolute; right: 0; bottom: 0; width: 11px; height: 11px; border-radius: 50%;
+  background: #34d399; border: 2.5px solid var(--navy-900);
+}
+.hero-badge { border-radius: 50%; }
+
+.btn {
+  border-radius: 10px; font-weight: 600; letter-spacing: 0.005em;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.08s, filter 0.15s;
+}
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--accent-100), 0 0 0 4px var(--accent); }
+.btn.primary {
+  background: linear-gradient(180deg, #27406f 0%, var(--navy-800) 100%);
+  border-color: var(--navy-900); color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 1px 2px rgba(20, 33, 61, 0.25), 0 6px 14px -8px rgba(20, 33, 61, 0.55);
+}
+.btn.primary:hover:not(:disabled) { background: linear-gradient(180deg, #2f4a7f 0%, #22385f 100%); }
+.btn.ghost {
+  background: linear-gradient(180deg, #fff 0%, #fafbfc 100%);
+  border-color: var(--line-strong); color: var(--ink);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), inset 0 -1px 0 rgba(15, 23, 42, 0.03);
+}
+.btn.ghost:hover:not(:disabled) { border-color: #b7bfcc; background: #fff; box-shadow: 0 2px 6px -2px rgba(15, 23, 42, 0.12); }
+.btn.sm { border-radius: 8px; }
+.hero .btn.primary {
+  background: linear-gradient(180deg, #f26b35 0%, var(--accent) 100%);
+  border-color: var(--accent-600);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px -8px rgba(234, 91, 37, 0.7);
+}
+.hero .btn.primary:hover:not(:disabled) { background: linear-gradient(180deg, #f47a48 0%, #ec6230 100%); }
+.hero .btn.ghost { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.2); box-shadow: none; }
+.hero .btn.ghost:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.32); }
+
+.icon-btn { border-radius: 10px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06); transition: background 0.15s, border-color 0.15s; }
+.icon-btn.sm { border-radius: 8px; }
+
+.estop {
+  border-radius: 10px; border: 1px solid #9e2a20; color: #fff;
+  background: linear-gradient(180deg, #d9463a 0%, var(--red) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 6px 14px -8px rgba(178, 58, 46, 0.8);
+  text-transform: uppercase; letter-spacing: 0.05em; font-size: 12.5px;
+}
+.estop:hover { background: linear-gradient(180deg, #e0533f 0%, #bd3f33 100%); }
+.estop.engaged { background: #fff; color: var(--red); border-color: var(--red); box-shadow: none; }
+
+.seg { border-radius: 11px; }
+.seg button { transition: color 0.15s, background 0.15s; }
+.seg button.on { box-shadow: 0 1px 3px rgba(15, 23, 42, 0.14); }
+
+.sb-logout {
+  height: 48px; border-radius: 12px; font-size: 15px; font-weight: 600;
+  background: linear-gradient(180deg, #fff0e6 0%, var(--accent-100) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 6px 16px -10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.08s, filter 0.15s;
+}
+.sb-logout:active { transform: translateY(1px); }
+
+.st-btn, .chip-t, .preset, .type-pick button { transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s; }
+.st-btn { border-radius: 10px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); }
+.st-btn.on { background: linear-gradient(180deg, #27406f 0%, var(--navy-800) 100%); border-color: var(--navy-900); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1280px) {
