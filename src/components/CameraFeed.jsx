@@ -81,7 +81,7 @@ export default function CameraFeed({ joints, zoom = 1, hud = true, rec = true, t
           <g key={t.id} transform={`translate(${sx(t.yaw)} ${sy(t.elev)})`}>
             <rect x={-PX * 5} y={PX * 0.1} width={PX * 10} height={PX * 1.9} fill="#f7f5ee" />
             {Array.from({ length: 22 }, (_, i) => <rect key={i} x={-PX * 4.6 + i * PX * 0.26} y={PX * 0.3} width={(i * 7) % 3 === 0 ? 2.2 : 1.1} height={PX * 1.1} fill="#1b1b18" />)}
-            <text x={PX * 1.4} y={PX * 1.35} fontSize={PX * 0.9} fill="#1b1b18" fontFamily="Geist Mono, monospace">{t.id.slice(4)}</text>
+            <text x={PX * 1.4} y={PX * 1.35} fontSize={PX * 0.9} fill="#1b1b18" fontFamily="JetBrains Mono, monospace">{t.id.slice(4)}</text>
           </g>
         ))}
 

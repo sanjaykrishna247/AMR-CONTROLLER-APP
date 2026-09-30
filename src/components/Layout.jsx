@@ -19,39 +19,24 @@ const TITLES = {
   '/health': ['System Health', 'Power, drives & ROS 2 nodes'],
 };
 
-const AVATAR_TONES = ['#E8DCCB', '#D5E3D6', '#D7DDEA', '#E6D5DE', '#E3DFCB', '#D3E2E3'];
-
-function Avatar({ name }) {
-  const initials = name.split(' ').filter(Boolean).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
-  const tone = AVATAR_TONES[[...name].reduce((a, c) => a + c.charCodeAt(0), 0) % AVATAR_TONES.length];
-  return (
-    <span className="sb-avatar" style={{ background: tone }}>
-      {initials}
-      <i className="sb-online" aria-hidden />
-    </span>
-  );
-}
-
 function Sidebar({ user, onLogout, onNavigate }) {
   const { s } = useRobot();
   const soc = Math.round((s.battery.ah / s.battery.cap) * 100);
+  const initials = user.name.split(' ').map((w) => w[0]).slice(0, 2).join('').toUpperCase();
   return (
     <aside className="sidebar">
-      <div className="sb-brand">
-        <span className="sb-logo" aria-hidden>
-          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13h14v5H5zM8 13V9l-1.5-3.5L10 4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><circle cx="8" cy="19.5" r="1.6" fill="currentColor" /><circle cx="16" cy="19.5" r="1.6" fill="currentColor" /></svg>
-        </span>
-        <div className="sb-brand-text">
-          <strong>AMR Control</strong>
-          <span>Plant floor · Bay 3</span>
+      <div className="sb-user">
+        <div className="sb-avatar">{initials}</div>
+        <div className="sb-user-text">
+          <strong>{user.name}</strong>
+          <span>{user.role}</span>
         </div>
       </div>
-
-      <div className="sb-section">Operations</div>
+      <div className="sb-divider" />
       <nav className="sb-nav">
         {NAV.map(({ to, label, icon: Icon, end }) => (
           <NavLink key={to} to={to} end={end} onClick={onNavigate} className={({ isActive }) => `sb-link${isActive ? ' active' : ''}`}>
-            <Icon size={17} strokeWidth={1.75} />
+            <Icon size={20} strokeWidth={1.8} />
             <span>{label}</span>
           </NavLink>
         ))}
@@ -66,19 +51,13 @@ function Sidebar({ user, onLogout, onNavigate }) {
           <div className="sb-batt-bar"><i style={{ width: `${soc}%` }} className={soc < 20 ? 'low' : ''} /></div>
           <span className="mono">{soc}%</span>
         </div>
-        <div className="sb-robot-meta"><Wifi size={12} /> rosbridge · 192.168.0.10</div>
+        <div className="sb-robot-meta"><Wifi size={13} /> rosbridge · 192.168.0.10</div>
       </div>
 
-      <div className="sb-profile">
-        <Avatar name={user.name} />
-        <div className="sb-user-text">
-          <strong>{user.name}</strong>
-          <span>{user.role}</span>
-        </div>
-        <button className="sb-logout" onClick={onLogout} title="Log out" aria-label="Log out">
-          <LogOut size={16} strokeWidth={1.9} />
-        </button>
-      </div>
+      <button className="sb-logout" onClick={onLogout}>
+        <LogOut size={20} strokeWidth={2} />
+        <span>Log Out</span>
+      </button>
     </aside>
   );
 }
@@ -104,7 +83,7 @@ export default function Layout({ user, onLogout }) {
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
           <div className="tb-title">
-            <div className="crumbs"><span>AMR-01</span><span className="crumb-sep">/</span><h1>{title}</h1></div>
+            <h1>{title}</h1>
             <p>{sub}</p>
           </div>
           <div className="tb-actions">
@@ -113,7 +92,7 @@ export default function Layout({ user, onLogout }) {
               <button className={s.mode === 'manual' ? 'on' : ''} onClick={() => setMode('manual')}>Manual</button>
             </div>
             <button className={`estop${s.estop ? ' engaged' : ''}`} onClick={toggleEstop}>
-              <OctagonX size={16} />
+              <OctagonX size={18} />
               <span>{s.estop ? 'Release' : 'E-Stop'}</span>
             </button>
           </div>

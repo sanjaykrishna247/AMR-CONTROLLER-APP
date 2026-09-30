@@ -51,7 +51,7 @@ export default function FactoryMap({ onPick, showLidar = true, showCostmap = fal
           )}
         </g>
       ))}
-      <rect x="0.02" y="0.02" width={WORLD.w - 0.04} height={WORLD.h - 0.04} rx="0.15" fill="none" stroke="var(--map-wall)" strokeWidth="0.04" />
+      <rect x="0.02" y="0.02" width={WORLD.w - 0.04} height={WORLD.h - 0.04} rx="0.15" fill="none" stroke="var(--map-wall)" strokeWidth="0.08" />
 
       {STATIONS.map((st) => (
         <g key={st.id} className="map-station" transform={`translate(${st.x} ${st.y})`}>
